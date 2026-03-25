@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Viewer</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        #search {
+            padding: 8px;
+            width: 300px;
+            margin-bottom: 15px;
+        }
+
+        #refreshBtn {
+            padding: 8px 14px;
+            margin-left: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Log</h2>
+
+<input id="search" placeholder="Search..." oninput="filterTable()">
+<button id="refreshBtn" onclick="loadData()">Refresh</button>
+
+<table id="logTable">
+    <thead>
+        <tr>
+            <th>UUID</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>IP</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    async function loadData() {
+        const res = await fetch("/log");
+        const data = await res.json();
+
+        const tbody = document.querySelector("#logTable tbody");
+        tbody.innerHTML = "";
+
+        data.forEach(row => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${row.id}</td>
+                <td>${row.name}</td>
+                <td>${row.number}</td>
+                <td>${row.ip}</td>
+                <td>${row.timestamp}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function filterTable() {
+        const query = document.getElementById("search").value.toLowerCase();
+        const rows = document.querySelectorAll("#logTable tbody tr");
+
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(query) ? "" : "none";
+        });
+    }
+
+    loadData();
+</script>
+
+</body>
+</html>

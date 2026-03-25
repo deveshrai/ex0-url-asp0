@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Test</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        #log { margin-top: 20px; padding: 10px; border: 1px solid #aaa;
+               height: 200px; width: 400px; overflow-y: auto; background: #f9f9f9; }
+        input { padding: 6px; margin: 4px 0; width: 250px; }
+        button { padding: 6px 12px; }
+    </style>
+</head>
+<body>
+
+<h2>Register Test</h2>
+
+<div>
+    <label>Server URL:</label><br>
+    <input id="wsUrl" value="ws://localhost:5000/register">
+    <button onclick="connectWS()">Connect</button>
+</div>
+
+<br>
+
+<div>
+    <input id="name" placeholder="Name">
+    <input id="number" placeholder="Number">
+    <button onclick="sendData()">Send</button>
+</div>
+
+<div id="log"></div>
+
+<script>
+    let socket = null;
+
+    function log(t) {
+        const box = document.getElementById("log");
+        box.textContent += t + "\n";
+        box.scrollTop = box.scrollHeight;
+    }
+
+    function connectWS() {
+        const url = document.getElementById("wsUrl").value;
+        socket = new WebSocket(url);
+
+        socket.onopen = () => log("Connected");
+        socket.onclose = () => log("Disconnected");
+        socket.onerror = (e) => log("Error: " + e);
+        socket.onmessage = (msg) => log("Received: " + msg.data);
+    }
+
+    function sendData() {
+        if (!socket || socket.readyState !== WebSocket.OPEN) {
+            log("Socket not connected");
+            return;
+        }
+
+        const payload = {
+            name: document.getElementById("name").value,
+            number: document.getElementById("number").value
+        };
+
+        socket.send(JSON.stringify(payload));
+        log("Sent: " + JSON.stringify(payload));
+    }
+</script>
+
+</body>
+</html>

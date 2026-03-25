@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        #log {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            height: 200px;
+            width: 400px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            white-space: pre-wrap;
+        }
+
+        input {
+            padding: 6px;
+            width: 250px;
+        }
+
+        button {
+            padding: 6px 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>WebSocket Test</h2>
+
+    <div>
+        <label>Server URL:</label><br>
+        <input id="wsUrl" value="ws://localhost:5000/register">
+        <button onclick="connectWS()">Connect</button>
+    </div>
+
+    <br>
+
+    <div>
+        <input id="msg" placeholder="Message to send">
+        <button onclick="sendMsg()">Send</button>
+    </div>
+
+    <div id="log"></div>
+
+    <script>
+        let socket = null;
+
+        function log(text) {
+            const box = document.getElementById("log");
+            box.textContent += text + "\n";
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function connectWS() {
+            const url = document.getElementById("wsUrl").value;
+            socket = new WebSocket(url);
+
+            socket.onopen = () => log("Connected");
+            socket.onclose = () => log("Disconnected");
+            socket.onerror = (e) => log("Error: " + e);
+            socket.onmessage = (msg) => log("Received: " + msg.data);
+        }
+
+        function sendMsg() {
+            if (!socket || socket.readyState !== WebSocket.OPEN) {
+                log("Socket not connected");
+                return;
+            }
+
+            const text = document.getElementById("msg").value;
+            socket.send(text);
+            log("Sent: " + text);
+        }
+    </script>
+
+</body>
+</html>
