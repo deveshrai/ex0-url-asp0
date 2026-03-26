@@ -56,6 +56,10 @@
 /Users/deveshrai/projects/ex0-url-asp0/ex0-url0/bin/Debug/net10.0/runtimes/win-x64/native/e_sqlite3.dll
 /Users/deveshrai/projects/ex0-url-asp0/ex0-url0/bin/Debug/net10.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/ex0-url0.csproj.AssemblyReference.cache
-/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/glg3arnkz7-{0}-ca1d63n09z-ca1d63n09z.gz
 /Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/ex0-url0.csproj.Up2Date
-/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/07agqu2w1v-{0}-o2wm6dwqpn-o2wm6dwqpn.gz
+/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/ex0-url0.sourcelink.json
+/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/vq4gh7n34l-{0}-3xrlov2guc-3xrlov2guc.gz
+/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/glg3arnkz7-{0}-179a12t4lw-179a12t4lw.gz
+/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/07agqu2w1v-{0}-bcauyfkc8i-bcauyfkc8i.gz
+/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/lkv6liiy4o-{0}-94ci8scexl-94ci8scexl.gz
+/Users/deveshrai/projects/ex0-url-asp0/ex0-url0/obj/Debug/net10.0/compressed/hxvhahl9ke-{0}-unbxeoi7ro-unbxeoi7ro.gz

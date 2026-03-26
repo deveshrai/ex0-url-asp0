@@ -1,0 +1,113 @@
+body {
+    font-family: "Inter", Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: #eee;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+#search {
+    padding: 12px 14px;
+    width: 320px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    transition: 0.25s ease;
+}
+
+#search::placeholder {
+    color: #aaa;
+}
+
+#search:focus {
+    outline: none;
+    border-color: #4da3ff;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 4px rgba(77,163,255,0.15);
+}
+
+#refreshBtn {
+    padding: 12px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4da3ff, #0066ff);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    letter-spacing: 0.3px;
+}
+
+#refreshBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 102, 255, 0.35);
+}
+
+#refreshBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Table container with glass effect */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Header */
+th {
+    background: rgba(255,255,255,0.08);
+    padding: 14px;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Table rows */
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: #ddd;
+    font-size: 14px;
+}
+
+/* Row striping */
+tr:nth-child(even) td {
+    background: rgba(255,255,255,0.03);
+}
+
+/* Hover highlight */
+tbody tr:hover td {
+    background: rgba(77,163,255,0.12);
+    transition: 0.2s ease;
+}
+
+/* Smooth scrollbar for table container */
+table::-webkit-scrollbar {
+    height: 8px;
+}
+table::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+}
+table::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.25);
+}

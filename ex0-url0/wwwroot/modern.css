@@ -1,0 +1,98 @@
+body {
+    font-family: "Inter", Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 12px 14px;
+    margin: 6px 0;
+    width: 260px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    transition: 0.25s ease;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4da3ff;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 4px rgba(77,163,255,0.15);
+}
+
+button {
+    padding: 12px 20px;
+    margin-left: 6px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4da3ff, #0066ff);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    letter-spacing: 0.3px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 102, 255, 0.35);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+#log {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    height: 240px;
+    width: 420px;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    color: #cfcfcf;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    line-height: 1.4;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+}
+
+/* Smooth scrollbar */
+#log::-webkit-scrollbar {
+    width: 8px;
+}
+#log::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+}
+#log::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.25);
+}

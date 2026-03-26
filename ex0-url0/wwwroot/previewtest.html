@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Link Preview Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #preview {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Link Preview</h2>
+
+  <input id="urlInput" type="text" placeholder="Paste a link…" style="width:300px;">
+  <button onclick="showPreview()">Preview</button>
+
+  <div id="preview">No preview yet</div>
+
+  <script>
+    async function showPreview() {
+      const url = document.getElementById("urlInput").value.trim();
+      const previewBox = document.getElementById("preview");
+
+      if (!url) {
+        previewBox.innerHTML = "Enter a URL first";
+        return;
+      }
+
+      previewBox.innerHTML = "Loading…";
+
+      try {
+        const api = `https://api.microlink.io/?url=${encodeURIComponent(url)}`;
+        const res = await fetch(api);
+        const data = await res.json();
+
+        const image = data?.data?.image?.url;
+
+        if (image) {
+          previewBox.innerHTML = `<img src="${image}" alt="Preview">`;
+        } else {
+          previewBox.innerHTML = "No image found";
+        }
+      } catch (err) {
+        previewBox.innerHTML = "Error loading preview";
+      }
+    }
+  </script>
+
+</body>
+</html>
